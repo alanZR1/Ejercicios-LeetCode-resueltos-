@@ -18,10 +18,14 @@ class Solution(object):
         count = 0
         candidate = None
 
-        
+        # recorremos el array para cada elemento
         for num in nums:
+            # si el contador es cero, asignamos el candidato
             if count == 0:
                 candidate = num
+            # si el elemento es el candidato,
+            # incrementamos el contador 
+            # de lo contrario lo decrementamos   
             count += (1 if num == candidate else -1)
 
         return candidate
