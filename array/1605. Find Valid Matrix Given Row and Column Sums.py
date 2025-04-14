@@ -14,14 +14,18 @@ It's guaranteed that at least one matrix that fulfills the requirements exists.
   """
   
 def restoreMatrix(rowSum, colSum):
+    # medimos la longitud de las filas y columnas
     m, n = len(rowSum), len(colSum)
+    # creamos una matriz de ceros
     matriz = [[0] * n for j in range(m)]
-    
+    # recorremos la matriz
     for i in range(m):
         for j in range(n):
+            # tomamos el valor mínimo entre la suma de la fila y la columna	
             val = min(rowSum[i], colSum[j])
+            # asignamos el valor a la matriz
             matriz[i][j] = val
-            
+            # restamos el valor a la suma de la fila y la columna
             rowSum[i] -= val
             colSum[j] -= val
     return matriz
