@@ -10,13 +10,20 @@ Return the number of valid splits in nums.
 
   """
 def waysToSplitArray(nums):
+        # sumamos el total de la lista
         sumTotal = sum(nums)
+        # inicializamos las variables
         sumaIz = 0  
         count = 0 
+        # recorremos la lista
         for i in range(len(nums) - 1):
+            # sumamos el valor de la izquierda
             sumaIz += nums[i]
+            # restamos el valor de la izquierda al total
             sumaD = sumTotal - sumaIz 
+                  # verificamos si la suma de la izquierda es mayor o igual a la de la derecha	
             if (sumaIz >= sumaD):
+                # si es asi, sumamos uno al contador
                 count += 1 
         return count
     
