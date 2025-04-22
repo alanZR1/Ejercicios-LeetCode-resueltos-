@@ -40,8 +40,8 @@ def isPrefixOfWord(sentence, searchWord):
     # y el metodo enumerate() para obtener el indice
     for index, word in enumerate(words):
    
-        if word.startswith(searchWord): # verifica si inicia con la palabra (argumento)
-            # retorna el indice + 1 ya que el problema pide el indice 1-indexed
+        if word.startswith(searchWord): #verifica si inicia con la palabra (argumento)
+            # si es verdadero, retorna el indice + 1 
             return index + 1
     return -1
 
