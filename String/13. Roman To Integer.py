@@ -27,6 +27,7 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
+        # creamos un diccionario con los valores de los simbolos romanos
         valores = {'I': 1,
             'V': 5,
             'X': 10,
@@ -35,14 +36,17 @@ class Solution(object):
             'D': 500,
             'M': 1000}
         resultado = 0
-
+        # iteramos sobre la cadena de caracteres
         for i in range (len(s) - 1): 
-
+            # si el valor del simbolo actual es menor que el siguiente    
             if valores[s[i]] < valores[s[i + 1]]:
+                # restamos el valor del simbolo actual al resultado
                 resultado -= valores[s[i]]
+            # si el valor del simbolo actual es mayor o igual que el siguiente    
             elif valores[s[i]] >= valores[s[i + 1]]:
+                # sumamos el valor del simbolo actual al resultado
                 resultado += valores[s[i]]
-
+        # sumamos el valor del ultimo simbolo al resultado
         resultado += valores[s[-1]]
         
         return resultado
