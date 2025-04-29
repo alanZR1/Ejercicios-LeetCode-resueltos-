@@ -21,23 +21,27 @@ class Solution(object):
         :type numRows: int
         :rtype: str
         """
+        # primero verificamos si el número de filas es menor o igual a 1
         if numRows <= 1 or numRows >= len(s):
             return s
-        
+        # creamos una lista de filas vacías
         filas = [""] * numRows
+        # inicializamos la fila actual y la dirección
         filaActual = 0
         direccion = 1 # 1 para abajo -1 para arriba 
         
         for caracter in s:
         # Añadir el carácter a la fila actual
             filas[filaActual] += caracter
-            
+            # Cambiar la dirección si estamos en la primera o última fila
             if filaActual == 0:
                 direccion = 1
+                # si estamos en la primera fila, cambiamos la dirección a abajo
             elif filaActual == numRows - 1:
                 direccion = -1
+                # si estamos en la última fila, cambiamos la dirección a arriba
             filaActual += direccion   
-                
+        # Devolvemos la cadena resultante uniendo todas las filas con el metodo join        
         return "".join(filas)
     
         
