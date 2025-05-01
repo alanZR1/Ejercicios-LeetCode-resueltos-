@@ -36,18 +36,27 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+        # ordenamos la lista de numeros
         nums.sort()
+        # inicializamos un diccionario para almacenar los resultados
         dp = {}
+        # inicializamos una variable para almacenar el maximo
         maxim = 1
 
         for num in nums:
+            # root es la raiz cuadrada del numero
             root = int(math.sqrt(num))
+            # si (raiz * raiz) = num  y ademas esta en el diccionario
             if root * root == num and root in dp:
+                # entonces añadimos el numero al diccionario
+                # y le asignamos el valor de dp[raiz] + 1
                 dp[num] = dp[root] + 1
             else:
+                # sino, simplemente lo añadimos al diccionario
                 dp[num] = 1
+            # si el numero es mayor que 1, lo comparamos con el maximo
             maxim = max(maxim, dp[num])
-
+        # returnamos el maximo si es mayor o igual a 2, sino retornamos -1
         return maxim if maxim >= 2 else -1
         
 # Ejemplo
@@ -55,3 +64,4 @@ nums = [4, 3, 6, 16, 8, 2]
 sol = Solution()
 result = sol.longestSquareStreak(nums)
 print(result)  
+# Output: 3
