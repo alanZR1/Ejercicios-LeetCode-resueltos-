@@ -12,13 +12,17 @@ Return the minimum number of deletions needed to make s balanced.
 
 
 def minimumDeletions(s):
+    # incializamos un contador y un contador de eliminaciones
     count_b = 0
     deletions = 0
-
+    
     for char in s:
+        # para cada caracter en la cadena
+        # si el caracter actual es b, incrementamos el contador de b
         if char == 'b':
             count_b += 1
         else:
+            # sino, elegimos el menor entre el contador de b y el contador de eliminaciones
             deletions = min(deletions + 1, count_b) 
     return deletions
 
