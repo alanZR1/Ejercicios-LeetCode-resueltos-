@@ -24,7 +24,6 @@ class Solution(object):
         return prefix
         
         
-
 result = Solution()
 strs = ["dog","dogear","car"]
 print(result.longestCommonPrefix(strs))  # Output: "fl"
